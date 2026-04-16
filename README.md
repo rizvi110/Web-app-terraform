@@ -8,6 +8,6 @@
 - Target group
 
 ## How to run
-terraform init
-terraform plan
-terraform apply
+- terraform init
+- terraform plan
+- terraform apply
