@@ -22,3 +22,8 @@ output "instance2_private_ip" {
 
 }
 
+output "lb_dns" {
+  description = "lb DNS"
+  value       = aws_lb.web-lb.dns_name
+
+}
