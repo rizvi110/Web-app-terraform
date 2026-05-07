@@ -24,7 +24,7 @@ jobs:
           aws-region: us-east-1
 
       - name: Terraform Init
-        run: terraform init
+        run: terraform init -migrate-state
 
       - name: Terraform Format
         run: terraform fmt -check
