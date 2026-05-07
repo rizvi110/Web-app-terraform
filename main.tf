@@ -1,7 +1,7 @@
 terraform {
-  
-backend "s3" {
-    bucket         = "terraform-state-web-app-bucket-2.0"  # must be globally unique
+
+  backend "s3" {
+    bucket         = "terraform-state-web-app-bucket-2.0" # must be globally unique
     key            = "web-app/terraform.tfstate"
     region         = "us-east-1"
     encrypt        = true
@@ -16,7 +16,7 @@ backend "s3" {
     }
   }
 
-  
+
 }
 
 provider "aws" {
@@ -36,7 +36,7 @@ resource "aws_s3_bucket_versioning" "terraform_bucket_versioning" {
 }
 
 resource "aws_s3_bucket_server_side_encryption_configuration" "terraform_state_crypto_conf" {
-  bucket        = aws_s3_bucket.terraform_state.bucket 
+  bucket = aws_s3_bucket.terraform_state.bucket
   rule {
     apply_server_side_encryption_by_default {
       sse_algorithm = "AES256"
