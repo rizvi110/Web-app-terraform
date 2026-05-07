@@ -1,40 +1,59 @@
+<<<<<<< HEAD
 name: Terraform Plan and Apply
+=======
+name: Terraform Plan
+>>>>>>> 548d987 (refactor: add remote state + improve CI pipeline structure)
 
 on:
+  pull_request:
   push:
     branches: ["main"]
+<<<<<<< HEAD
   workflow_dispatch:
 
 jobs:
   terraform:
+=======
+
+jobs:
+  plan:
+>>>>>>> 548d987 (refactor: add remote state + improve CI pipeline structure)
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v3
+      - uses: hashicorp/setup-terraform@v3
 
+<<<<<<< HEAD
       - name: AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
+=======
+      - uses: aws-actions/configure-aws-credentials@v4
+>>>>>>> 548d987 (refactor: add remote state + improve CI pipeline structure)
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
+<<<<<<< HEAD
       - name: Terraform Init
         run: terraform init -migrate-state
+=======
+      - run: terraform init -input=false
+>>>>>>> 548d987 (refactor: add remote state + improve CI pipeline structure)
 
-      - name: Terraform Format
-        run: terraform fmt -check
+      - run: terraform fmt -check
 
-      - name: Terraform Validate
-        run: terraform validate
+      - run: terraform validate
 
+<<<<<<< HEAD
       - name: Terraform Plan
         run: terraform plan
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main'
         run: terraform apply -auto-approve
+=======
+      - run: terraform plan -input=false
+>>>>>>> 548d987 (refactor: add remote state + improve CI pipeline structure)
