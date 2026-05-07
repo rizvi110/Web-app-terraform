@@ -8,6 +8,5 @@
 - Target group
 
 ## How to run
-- terraform init
-- terraform plan
-- terraform apply
+- Terraform bootstrap creates s3 bucket (one time execution)
+- Web-app-terraform deploys infrastructure
